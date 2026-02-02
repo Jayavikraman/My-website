@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest Ovs 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #feada6 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ==================== ROMANTIC PARTICLES ==================== */
+        .heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp 10s infinite ease-in;
+            opacity: 0;
+            filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-150px) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* ==================== MAGICAL SPARKLES ==================== */
+        .sparkle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff69b4;
+            animation: sparkle 2s infinite;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ==================== SCREEN CONTAINER ==================== */
+        .screen {
+            display: none;
+            opacity: 0;
+            text-align: center;
+            padding: 40px;
+            z-index: 10;
+            position: relative;
+            max-width: 700px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(214, 51, 132, 0.3);
+        }
+
+        .screen.active {
+            display: block;
+            animation: fadeInScale 1s forwards;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* ==================== TYPOGRAPHY ==================== */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: linear-gradient(135deg, #ff1744, #d81b60, #ff6090);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-shadow: 0 0 30px rgba(255, 23, 68, 0.3);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                filter: brightness(1) drop-shadow(0 0 10px rgba(255, 105, 180, 0.5));
+            }
+            50% {
+                filter: brightness(1.2) drop-shadow(0 0 20px rgba(255, 105, 180, 0.8));
+            }
+        }
+
+        p {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: #880e4f;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+        }
+
+        .emoji {
+            font-size: clamp(2rem, 5vw, 3rem);
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* ==================== ENHANCED BUTTONS ==================== */
+        button {
+            background: linear-gradient(135deg, #ff1744 0%, #d81b60 100%);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(216, 27, 96, 0.4);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            font-weight: 600;
+            margin: 15px;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(216, 27, 96, 0.6);
+        }
+
+        button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==================== SCREEN 2 - QUESTIONS ==================== */
+        .question-text {
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            color: #c2185b;
+            margin-bottom: 40px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+            margin-left: 5px;
+            color: #ff1744;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .pop-heart {
+            position: fixed;
+            font-size: 40px;
+            pointer-events: none;
+            animation: popHeart 1.2s ease-out forwards;
+            z-index: 100;
+            filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.8));
+        }
+
+        @keyframes popHeart {
+            0% {
+                transform: scale(0) translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(2) translateY(-40px) rotate(180deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5) translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ==================== SCREEN 3 - THE BIG QUESTION ==================== */
+        .loading-container {
+            text-align: center;
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            font-size: 60px;
+            color: #ff1744;
+            animation: bounce 1.4s infinite ease-in-out both;
+            filter: drop-shadow(0 0 10px rgba(255, 23, 68, 0.6));
+        }
+
+        .dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0) translateY(0);
+                opacity: 0.3;
+            }
+            40% {
+                transform: scale(1.3) translateY(-20px);
+                opacity: 1;
+            }
+        }
+
+        .big-question {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, #ff1744, #f50057, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            font-weight: 700;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.05);
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.05);
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            min-height: 220px;
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #ff1744 0%, #f50057 100%);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            box-shadow: 0 10px 40px rgba(245, 0, 87, 0.5);
+        }
+
+        #yesBtn:hover {
+            box-shadow: 0 15px 50px rgba(245, 0, 87, 0.7);
+            animation: rainbow 2s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg) brightness(1.2); }
+            100% { filter: hue-rotate(360deg) brightness(1.2); }
+        }
+
+        #noBtn {
+            background: linear-gradient(135deg, #9e9e9e 0%, #616161 100%);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+
+        /* ==================== POPUP MESSAGE ==================== */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            max-width: 500px;
+            width: 85%;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 3px solid rgba(255, 105, 180, 0.4);
+        }
+
+        .popup.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .popup-content {
+            text-align: center;
+        }
+
+        .popup-content p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: #c2185b;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .close-btn {
+            background: linear-gradient(135deg, #ff4081 0%, #f50057 100%);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(245, 0, 87, 0.4);
+        }
+
+        /* ==================== SCREEN 4 - CELEBRATION ==================== */
+        #celebrationHearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .celebration-heart {
+            position: absolute;
+            font-size: clamp(30px, 5vw, 50px);
+            animation: celebrationFloat 3s ease-out forwards;
+            filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.8));
+        }
+
+        @keyframes celebrationFloat {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+                transform: translateX(-50px) rotate(0deg) scale(0);
+            }
+            25% {
+                opacity: 1;
+                transform: translateX(50px) rotate(180deg) scale(1.5);
+            }
+            50% {
+                transform: translateX(-30px) rotate(360deg) scale(1.2);
+            }
+            75% {
+                transform: translateX(30px) rotate(540deg) scale(1.5);
+            }
+            100% {
+                bottom: 120%;
+                opacity: 0;
+                transform: translateX(0) rotate(720deg) scale(0.5);
+            }
+        }
+
+        .final-message {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            background: linear-gradient(135deg, #ff1744, #f50057, #ff4081);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(255, 23, 68, 0.6));
+            }
+            50% {
+                filter: drop-shadow(0 0 30px rgba(255, 23, 68, 1));
+            }
+        }
+
+        /* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+        @media (max-width: 600px) {
+            .screen {
+                padding: 25px;
+            }
+            
+            button {
+                padding: 15px 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="heart-container" id="heartContainer"></div>
+
+    <!-- Screen 1: Welcome -->
+    <div class="screen active" id="screen1">
+        <h1>Hey Ovs! 💖</h1>
+        <p class="emoji">✨💕✨</p>
+        <p>It's me, Jais... and I've been holding onto something special</p>
+        <p>Something my heart keeps whispering every time I think of you 🥰</p>
+        <button onclick="goToScreen(2)">
+            <span>Tell me, Jais! 💫</span>
+        </button>
+        <button onclick="showDummyMessage(1)" style="background: linear-gradient(135deg, #757575 0%, #424242 100%);">
+            <span>Maybe later 🤔</span>
+        </button>
+    </div>
+
+    <!-- Screen 2: Questions -->
+    <div class="screen" id="screen2">
+        <h1>Let Me Ask You Something, Ovs... 💭</h1>
+        <div class="question-text">
+            <span id="typingText"></span>
+            <span class="cursor">|</span>
+        </div>
+        <button id="questionBtn" onclick="nextQuestion()">
+            <span>Yes, Jais! 💖</span>
+        </button>
+        <button id="dummyNoBtn2" onclick="showDummyMessage(2)" style="background: linear-gradient(135deg, #757575 0%, #424242 100%);">
+            <span>Not really 😅</span>
+        </button>
+    </div>
+
+    <!-- Screen 3: The Big Question -->
+    <div class="screen" id="screen3">
+        <h1>Ovs, My Heart Is Racing... 💝</h1>
+        
+        <div id="loadingDots" class="loading-container">
+            <p style="color: #d63384; font-size: clamp(1.2rem, 3vw, 1.6rem);">Jais is gathering all his courage...</p>
+            <div class="dots">
+                <span class="dot">💕</span>
+                <span class="dot">💕</span>
+                <span class="dot">💕</span>
+            </div>
+        </div>
+
+        <div id="bigQuestion" style="display: none;">
+            <p class="big-question">Ovs, will you be my Valentine? 💖</p>
+            <p style="font-size: clamp(1rem, 2.5vw, 1.3rem); margin-bottom: 35px;">
+                Jais is waiting with bated breath... 😊💕
+            </p>
+            <div class="button-container">
+                <button id="yesBtn" onclick="handleYes()">
+                    <span>YES, Jais! 💕</span>
+                </button>
+                <button id="noBtn" onclick="handleNo()">
+                    <span>No 💔</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 4: Celebration -->
+    <div class="screen" id="screen4">
+        <h1>You said YES! 🎉💖</h1>
+        <p class="final-message">Ovs, you just made Jais the happiest person alive! 😊✨</p>
+        <p class="emoji">💕💖💗💓💝💘</p>
+        <p style="font-size: clamp(1.1rem, 2.5vw, 1.5rem); margin-top: 25px;">
+            This Valentine's Day is going to be absolutely magical, Ovs 🌟
+        </p>
+        <p style="font-size: clamp(1rem, 2.3vw, 1.3rem); margin-top: 20px; font-style: italic;">
+            Can't wait to create more beautiful memories with you 💑
+        </p>
+        <p style="font-size: clamp(0.95rem, 2.2vw, 1.2rem); margin-top: 15px; color: #d81b60;">
+            ~ Forever yours, Jais 💖
+        </p>
+    </div>
+
+    <div id="celebrationHearts"></div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p id="popupText"></p>
+            <button class="close-btn" onclick="closePopup()">Got it! 😊</button>
+        </div>
+    </div>
+
+    <script>
+        // ==================== GLOBAL VARIABLES ====================
+        let currentQuestion = 0;
+        let noClickCount = 0;
+        let isNoEscaping = false;
+
+        const questions = [
+            "Ovs, do you smile when you think of me? 🥰",
+            "Do you feel something special between us, Ovs? ✨",
+            "When we talk, does your heart skip a beat like mine does? 💫",
+            "Ovs, can you imagine us creating amazing memories together? 🦋",
+            "Do you believe Jais and Ovs could be something beautiful? 🌈"
+        ];
+
+        const dummyClickCounts = { 1: 0, 2: 0 };
+        
+        const dummyMessages = {
+            1: [
+                "Ovs! Come on now, you know Jais put his heart into this 🥺💕",
+                "Really? You're going to make me wait? I've been practicing this all day! 😅✨",
+                "Ovs, don't leave me hanging here! I'm nervous enough already 🙈💖",
+                "I see you testing my patience... but I'm not giving up that easily! 😏💝",
+                "Okay, okay, I get it... but seriously, just one click? For Jais? 🥹🌹"
+            ],
+            2: [
+                "Wait, Ovs... 'not really'? My heart just did a little flip! Try again? 💓😊",
+                "Ovs! That button is clearly broken. The real answer is the other one 😌💕",
+                "Come on, we both know the truth. Jais can see right through you! 👀✨",
+                "You're just being playful now, aren't you Ovs? I know you better than that 😏💖",
+                "That's it, I'm convinced you're just testing how persistent Jais can be! 🎯💝"
+            ]
+        };
+
+        // ==================== FLOATING HEARTS BACKGROUND ====================
+        function createFloatingHearts() {
+            const container = document.getElementById('heartContainer');
+            const heartEmojis = ['❤️', '💖', '💕', '💗', '💓', '💝', '💘', '🌹', '✨'];
+
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+                heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                container.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 12000);
+            }, 400);
+        }
+
+        // ==================== SPARKLES EFFECT ====================
+        function createSparkles() {
+            setInterval(() => {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 2000);
+            }, 300);
+        }
+
+        // ==================== DUMMY BUTTON MESSAGES ====================
+        function showDummyMessage(screen) {
+            const popup = document.getElementById('popup');
+            const popupText = document.getElementById('popupText');
+            
+            const count = dummyClickCounts[screen];
+            const messages = dummyMessages[screen];
+            
+            const messageIndex = count % messages.length;
+            popupText.textContent = messages[messageIndex];
+            popup.classList.add('show');
+            
+            dummyClickCounts[screen]++;
+        }
+
+        // ==================== SCREEN TRANSITIONS ====================
+        function goToScreen(screenNumber) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+
+            setTimeout(() => {
+                document.getElementById('screen' + screenNumber).classList.add('active');
+                
+                if (screenNumber === 2) {
+                    currentQuestion = 0;
+                    typeQuestion();
+                }
+                
+                if (screenNumber === 3) {
+                    setTimeout(() => {
+                        document.getElementById('loadingDots').style.display = 'none';
+                        document.getElementById('bigQuestion').style.display = 'block';
+                    }, 3000);
+                }
+            }, 400);
+        }
+
+        // ==================== TYPING EFFECT ====================
+        function typeQuestion() {
+            const text = questions[currentQuestion];
+            const typingText = document.getElementById('typingText');
+            const btn = document.getElementById('questionBtn');
+            const dummyBtn = document.getElementById('dummyNoBtn2');
+            typingText.textContent = '';
+            btn.style.opacity = '0';
+            dummyBtn.style.opacity = '0';
+            
+            let index = 0;
+            const typingInterval = setInterval(() => {
+                if (index < text.length) {
+                    typingText.textContent += text[index];
+                    index++;
+                } else {
+                    clearInterval(typingInterval);
+                    setTimeout(() => {
+                        btn.style.opacity = '1';
+                        btn.style.transition = 'opacity 0.6s ease';
+                        dummyBtn.style.opacity = '1';
+                        dummyBtn.style.transition = 'opacity 0.6s ease';
+                    }, 400);
+                }
+            }, 60);
+        }
+
+        // ==================== SCREEN 2: QUESTIONS ====================
+        function nextQuestion() {
+            const btn = document.getElementById('questionBtn');
+            const dummyBtn = document.getElementById('dummyNoBtn2');
+            const rect = btn.getBoundingClientRect();
+            createPopHeart(rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+            btn.style.opacity = '0';
+            dummyBtn.style.opacity = '0';
+
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                setTimeout(() => {
+                    typeQuestion();
+                }, 600);
+            } else {
+                setTimeout(() => {
+                    goToScreen(3);
+                }, 600);
+            }
+        }
+
+        function createPopHeart(x, y) {
+            const heartEmojis = ['💕', '💖', '💗', '💓', '💝'];
+            const heart = document.createElement('div');
+            heart.className = 'pop-heart';
+            heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 1200);
+        }
+
+        // ==================== SCREEN 3: THE BIG QUESTION ====================
+        function handleYes() {
+            goToScreen(4);
+            createCelebrationHearts();
+        }
+
+        function handleNo() {
+            noClickCount++;
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const popup = document.getElementById('popup');
+            const popupText = document.getElementById('popupText');
+
+            if (noClickCount === 1) {
+                popupText.textContent = "Hmm, Ovs... interesting choice 🤔 But you know Jais only put that button there as a formality, right? 😏💕";
+                popup.classList.add('show');
+
+                yesBtn.style.padding = '28px 60px';
+                yesBtn.style.fontSize = 'clamp(1.3rem, 3vw, 1.7rem)';
+
+                noBtn.style.padding = '14px 28px';
+                noBtn.style.fontSize = 'clamp(0.85rem, 2vw, 1.1rem)';
+
+            } else if (noClickCount === 2) {
+                popupText.textContent = "Ovs, Ovs, Ovs... still testing Jais? 👀 You know there's only one answer that makes sense here! 😌💖";
+                popup.classList.add('show');
+
+                yesBtn.style.padding = '35px 75px';
+                yesBtn.style.fontSize = 'clamp(1.5rem, 3.5vw, 2.1rem)';
+
+                noBtn.style.padding = '10px 20px';
+                noBtn.style.fontSize = 'clamp(0.75rem, 1.5vw, 0.95rem)';
+
+            } else {
+                noBtn.style.position = 'absolute';
+                noBtn.style.zIndex = '3';
+                isNoEscaping = true;
+                moveNoButton();
+            }
+        }
+
+        function moveNoButton() {
+            if (!isNoEscaping) return;
+
+            const noBtn = document.getElementById('noBtn');
+            const screen = document.getElementById('screen3');
+            const screenRect = screen.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            const maxX = screenRect.width - btnRect.width - 50;
+            const maxY = screenRect.height - btnRect.height - 50;
+
+            const randomX = Math.random() * maxX + 25;
+            const randomY = Math.random() * maxY + 25;
+
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+            noBtn.style.transition = 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isNoEscaping) return;
+
+            const noBtn = document.getElementById('noBtn');
+            const rect = noBtn.getBoundingClientRect();
+            const distance = Math.sqrt(
+                Math.pow(e.clientX - (rect.left + rect.width / 2), 2) +
+                Math.pow(e.clientY - (rect.top + rect.height / 2), 2)
+            );
+
+            if (distance < 120) {
+                moveNoButton();
+            }
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isNoEscaping) return;
+
+            const touch = e.touches[0];
+            const noBtn = document.getElementById('noBtn');
+            const rect = noBtn.getBoundingClientRect();
+            const distance = Math.sqrt(
+                Math.pow(touch.clientX - (rect.left + rect.width / 2), 2) +
+                Math.pow(touch.clientY - (rect.top + rect.height / 2), 2)
+            );
+
+            if (distance < 120) {
+                moveNoButton();
+            }
+        });
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('show');
+        }
+
+        // ==================== SCREEN 4: CELEBRATION ====================
+        function createCelebrationHearts() {
+            const container = document.getElementById('celebrationHearts');
+            const celebrationEmojis = ['❤️', '💖', '💕', '💗', '💓', '💝', '💘', '😘', '💋', '🌹', '✨', '🎉'];
+            
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'celebration-heart';
+                    heart.innerHTML = celebrationEmojis[Math.floor(Math.random() * celebrationEmojis.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDelay = Math.random() * 0.5 + 's';
+                    heart.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
+                    container.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }, i * 120);
+            }
+        }
+
+        // ==================== INITIALIZE ====================
+        window.onload = function() {
+            createFloatingHearts();
+            createSparkles();
+        };
+    </script>
+</body>
+</html>
